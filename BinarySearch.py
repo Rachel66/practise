@@ -1,3 +1,4 @@
+#Before use binary search,you must make sort the list
 def BinarySearch(list,key):
 
     low = 0
