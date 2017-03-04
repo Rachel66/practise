@@ -1,4 +1,3 @@
-#Create BinaryTree
 class BinaryTree:
     
     def __init__(self,value):
@@ -17,17 +16,9 @@ class BinaryTree:
     def showdata(self):
         print (self.data)
         
-#order the tree
-def inorder(node):
-    if node.data:
-        if node.left:
-            inorder(node.left)
-        node.showdata()
-        if node.right:
-            inorder(node.right)
 
-#insert data to BinaryTree
 def insert(node,value):
+
     if value > node.data:
         if node.right:
             insert(node.right,value)
@@ -39,6 +30,34 @@ def insert(node,value):
         else:
             node.insertLeft(value)
 
+def preorder(node):
+    
+    if node.data:
+        node.showdata()
+        if node.left:
+            preorder(node.left)
+        if node.right:
+            preorder(node.right)
+
+def inorder(node):
+    
+    if node.data:
+        if node.left:
+            inorder(node.left)
+        node.showdata()
+        if node.right:
+            inorder(node.right)
+
+def postorder(node):
+    
+    if node.data:
+        if node.left:
+             postorder(node.left)
+        if node.right:
+            postorder(node.right)
+        node.showdata()
+
+
 
 if __name__ == "__main__":
 
@@ -49,5 +68,11 @@ if __name__ == "__main__":
     for i in range(1,len(list)):
         insert(Root,list[i])
 
-    print ("BianryTree: ")
+    print ("preorder: ")
+    preorder(Root)
+    print ("inorder: ")
     inorder(Root)
+    print ("postorder: ")
+    postorder(Root)
+    
+    
